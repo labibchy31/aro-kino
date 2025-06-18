@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>arO kinO</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      position: relative;
+    }
+    .logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 28px;
+      color: purple;
+      font-weight: bold;
+    }
+    .menu {
+      position: relative;
+      cursor: pointer;
+    }
+    .menu-content {
+      display: none;
+      position: absolute;
+      top: 30px;
+      right: 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 100;
+    }
+    .menu-content a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+    .menu-content a:hover {
+      background-color: #eee;
+    }
+    .call {
+      cursor: pointer;
+      position: relative;
+    }
+    .call-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 999;
+      font-size: 18px;
+    }
+    .sections {
+      display: flex;
+      justify-content: space-around;
+      padding: 40px 20px;
+      flex-wrap: wrap;
+    }
+    .section {
+      width: 120px;
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+      font-size: 18px;
+    }
+    .sponsor {
+      font-size: 12px;
+      color: #666;
+      margin-top: 5px;
+    }
+    #productMessage {
+      display: none;
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="call" onclick="toggleCallPopup()">
+      ☎
+    </div>
+    <div class="logo">arO kinO</div>
+    <div class="menu" onclick="toggleMenu()">
+      &#8942;
+      <div class="menu-content" id="menuContent">
+        <a href="#">Men's Fashion</a>
+        <a href="#">Women's Fashion</a>
+        <a href="#">Kids</a>
+        <a href="#">Electronics</a>
+        <a href="#">Home Appliances</a>
+        <a href="#">Others</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="sections">
+    <div class="section" onclick="showNoProduct()">
+      <div style="font-size: 40px;">👔</div>
+      <div>Shirt</div>
+    </div>
+    <div class="section" onclick="showNoProduct()">
+      <div style="font-size: 40px;">👖</div>
+      <div>Pants</div>
+    </div>
+    <div class="section" onclick="showNoProduct()">
+      <div style="font-size: 40px;">👟</div>
+      <div>Shoes</div>
+    </div>
+    <div class="section" onclick="showNoProduct()">
+      <div style="font-size: 40px;">👠</div>
+      <div>High Heels</div>
+    </div>
+    <div class="section" onclick="showNoProduct()">
+      <div style="font-size: 40px;">🍼</div>
+      <div>Baby Product</div>
+    </div>
+  </main>
+
+  <div id="productMessage">There is no product listed yet</div>
+
+  <div class="call-popup" id="callPopup">📞 Call us at: 01521534481</div>
+
+  <footer>
+    আবার আসবেন!
+    <div class="sponsor">Sponsored by Labib and Munni</div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menuContent');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function toggleCallPopup() {
+      const popup = document.getElementById('callPopup');
+      popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function showNoProduct() {
+      const msg = document.getElementById('productMessage');
+      msg.style.display = 'block';
+      window.scrollTo({ top: msg.offsetTop, behavior: 'smooth' });
+    }
+
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.menu')) {
+        document.getElementById('menuContent').style.display = 'none';
+      }
+      if (!event.target.closest('.call')) {
+        document.getElementById('callPopup').style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
