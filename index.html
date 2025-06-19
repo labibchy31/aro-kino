@@ -7,9 +7,7 @@
   <title>Aro Kino | Online Shopping by Labib Chowdhury, Meem Yeasmin & Munni</title>
 
   <meta name="description" content="Welcome to Aro Kino — an online shopping page by Labib Chowdhury, Meem Yeasmin, and Munni. Discover unique products and enjoy a great shopping experience!">
-
   <meta name="keywords" content="aro kino, online shopping, Labib Chowdhury, Meem Yeasmin, Munni, Labib, aro kino page">
-
   <meta name="author" content="Labib Chowdhury">
 
   <style>
@@ -34,6 +32,7 @@
       font-size: 28px;
       color: purple;
       font-weight: bold;
+      cursor: pointer;
     }
     .menu {
       position: relative;
@@ -104,6 +103,16 @@
       color: #666;
       margin-top: 5px;
     }
+    .about-link {
+      font-size: 14px;
+      margin-top: 8px;
+      display: block;
+      color: purple;
+      text-decoration: none;
+    }
+    .about-link:hover {
+      text-decoration: underline;
+    }
     #productMessage {
       display: none;
       text-align: center;
@@ -115,12 +124,9 @@
 </head>
 <body>
   <header>
-    <div class="call" onclick="toggleCallPopup()">
-      ☎
-    </div>
-    <div class="logo">arO kinO</div>
-    <div class="menu" onclick="toggleMenu()">
-      &#8942;
+    <div class="call" onclick="toggleCallPopup()">☎</div>
+    <div class="logo" onclick="location.href='index.html'">arO kinO</div>
+    <div class="menu" onclick="toggleMenu()">&#8942;
       <div class="menu-content" id="menuContent">
         <a href="#">Men's Fashion</a>
         <a href="#">Women's Fashion</a>
@@ -133,35 +139,20 @@
   </header>
 
   <main class="sections">
-    <div class="section" onclick="showNoProduct()">
-      <div style="font-size: 40px;">👔</div>
-      <div>Shirt</div>
-    </div>
-    <div class="section" onclick="showNoProduct()">
-      <div style="font-size: 40px;">👖</div>
-      <div>Pants</div>
-    </div>
-    <div class="section" onclick="showNoProduct()">
-      <div style="font-size: 40px;">👟</div>
-      <div>Shoes</div>
-    </div>
-    <div class="section" onclick="showNoProduct()">
-      <div style="font-size: 40px;">👠</div>
-      <div>High Heels</div>
-    </div>
-    <div class="section" onclick="showNoProduct()">
-      <div style="font-size: 40px;">🍼</div>
-      <div>Baby Product</div>
-    </div>
+    <div class="section" onclick="showNoProduct()"><div style="font-size: 40px;">👔</div><div>Shirt</div></div>
+    <div class="section" onclick="showNoProduct()"><div style="font-size: 40px;">👖</div><div>Pants</div></div>
+    <div class="section" onclick="showNoProduct()"><div style="font-size: 40px;">👟</div><div>Shoes</div></div>
+    <div class="section" onclick="showNoProduct()"><div style="font-size: 40px;">👠</div><div>High Heels</div></div>
+    <div class="section" onclick="showNoProduct()"><div style="font-size: 40px;">🍼</div><div>Baby Product</div></div>
   </main>
 
   <div id="productMessage">There is no product listed yet</div>
-
   <div class="call-popup" id="callPopup">📞 Call us at: 01521534481</div>
 
   <footer>
     আবার আসবেন!
     <div class="sponsor">Sponsored by Labib and Munni</div>
+    <a class="about-link" href="about.html">About Us</a>
   </footer>
 
   <script>
@@ -169,18 +160,15 @@
       const menu = document.getElementById('menuContent');
       menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
     }
-
     function toggleCallPopup() {
       const popup = document.getElementById('callPopup');
       popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
     }
-
     function showNoProduct() {
       const msg = document.getElementById('productMessage');
       msg.style.display = 'block';
       window.scrollTo({ top: msg.offsetTop, behavior: 'smooth' });
     }
-
     document.addEventListener('click', function(event) {
       if (!event.target.closest('.menu')) {
         document.getElementById('menuContent').style.display = 'none';
@@ -192,4 +180,5 @@
   </script>
 </body>
 </html>
+
 
